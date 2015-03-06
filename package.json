@@ -9,7 +9,7 @@
   "author": "Aaron Ackerman",
   "license": "ISC",
   "devDependencies": {
-    "bird": "^0.6.0",
+    "bird": "^0.7.0",
     "express": "^4.10.4"
   }
 }

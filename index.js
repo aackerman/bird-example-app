@@ -4,6 +4,14 @@ var qs      = require('querystring');
 
 var app = express();
 
+if (
+  process.env.TW_CONSUMER_KEY === undefined ||
+  process.env.TW_CONSUMER_SECRET === undefined
+) {
+  console.log('Both process.env.TW_CONSUMER_KEY and process.env.TW_CONSUMER_SECRET must be defined');
+  process.exit(1);
+}
+
 app.get('/', function(req, res){
   Bird.auth.requestToken({
     oauth: {
@@ -34,4 +42,6 @@ app.get('/tw-callback', function(req, res){
   });
 });
 
-app.listen(3000);
+app.listen(3000, function(){
+  console.log('bird-example-app listening at http://localhost:3000');
+});
